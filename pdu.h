@@ -68,7 +68,8 @@ typedef enum
 {
     NF_UNKNOWN = 0x80,
     NF_INTERNATIONAL = 0x91,
-    NF_NATIONAL = 0x81
+    NF_NATIONAL = 0x81,
+    NF_CHAR  = 0xD0
 }PDU_NumberFormat_t;
 
 typedef enum

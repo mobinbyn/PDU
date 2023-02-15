@@ -276,6 +276,8 @@ void PDU_decode()
 
     pop(2, &val, NULL);
     pdu.deliver_header.numberFormat = val;
+    if(pdu.deliver_header.numberFormat == NF_CHAR)
+        return;
     pop(tmp, NULL, pdu.deliver_header.OA);
     //   --- OA
     //   +++ PID
@@ -304,25 +306,43 @@ void PDU_decode()
         /* Header type */
         pop(2, &val, NULL);
         headerSize--;
+        /* IEI */
         switch(val)
         {
-            case 5: /* Port */
-                /* Port data size */
-                pop(2, &val, NULL);
-                headerSize --;
-                tmp = val;
+            case 0: /* Concatenated short messages, 8-bit reference number	 */
+                /* length = 3 */
+            case 1: /* Special SMS Message Indication */
+                /* length = 2 */
+            //case 2: /* Reserved */
+                /* length = N/A */
+            case 3: /* Not used to avoid misinterpretation as <LF> character */
+                /* length = N/A */
+                /* But it should be removed */
+                pop(headerSize*2, NULL, NULL);
+                break;
+            case 4: /* Application port addressing scheme, 8-bit address */
+                /* length = 2 */
+                pop(2, NULL, NULL);
                 /* Source Port */
-                pop(tmp/2, &val, NULL);
+                pop(2, &val, NULL);
+                pdu.source_port = val;
+                /* Destination Port */
+                pop(2, &val, NULL);
+                pdu.destination_port = val;
+                break;
+            case 5: /* Application port addressing scheme, 16-bit address	 */
+                /* length = 4 */
+                pop(2, NULL, NULL);
+                /* Source Port */
+                pop(2, &val, NULL);
                 int port = val << 8;
-                pop(tmp/2, &val, NULL);
-                headerSize -= (tmp/2);
+                pop(2, &val, NULL);
                 port |= val & 0x00FF;
                 pdu.source_port = port;
                 /* Destination Port */
-                pop(tmp/2, &val, NULL);
+                pop(2, &val, NULL);
                 port = val << 8;
-                pop(tmp/2, &val, NULL);
-                headerSize -= (tmp/2);
+                pop(2, &val, NULL);
                 port |= val & 0x00FF;
                 pdu.destination_port = port;
                 break;
@@ -373,6 +393,8 @@ void PDU_getPhoneNumber(char* number, bool sign)
 
 static void pop(int length, int *value, char *str)
 {
+    if(length >= UD_SIZE)
+        return;
     char octets[length+1];
     memset(octets, 0, length+1);
     memcpy(octets, pdu.pdu_code, length);
