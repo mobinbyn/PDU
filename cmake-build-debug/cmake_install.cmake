@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Shaw/Desktop/pdu
+# Install script for directory: D:/Workspace/C Lib/PDU/pdu
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Shaw/Desktop/pdu/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/Workspace/C Lib/PDU/pdu/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

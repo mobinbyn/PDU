@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/Shaw/Desktop/pdu/cmake-build-debug",
-		"source" : "C:/Users/Shaw/Desktop/pdu"
+		"build" : "D:/Workspace/C Lib/PDU/pdu/cmake-build-debug",
+		"source" : "D:/Workspace/C Lib/PDU/pdu"
 	},
 	"version" : 
 	{

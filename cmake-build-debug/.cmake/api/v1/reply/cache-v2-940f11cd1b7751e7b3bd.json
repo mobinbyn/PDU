@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/Shaw/Desktop/pdu/cmake-build-debug"
+			"value" : "d:/Workspace/C Lib/PDU/pdu/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -139,10 +139,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "C compiler"
 				}
 			],
-			"type" : "UNINITIALIZED",
+			"type" : "STRING",
 			"value" : "C:/Program Files/JetBrains/CLion 2022.2/bin/mingw/bin/gcc.exe"
 		},
 		{
@@ -479,7 +479,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/Shaw/Desktop/pdu"
+			"value" : "D:/Workspace/C Lib/PDU/pdu"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1095,7 +1095,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Shaw/Desktop/pdu/cmake-build-debug"
+			"value" : "D:/Workspace/C Lib/PDU/pdu/cmake-build-debug"
 		},
 		{
 			"name" : "pdu_IS_TOP_LEVEL",
@@ -1119,7 +1119,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Shaw/Desktop/pdu"
+			"value" : "D:/Workspace/C Lib/PDU/pdu"
 		}
 	],
 	"kind" : "cache",
