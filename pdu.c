@@ -1251,6 +1251,7 @@ int utf8Length(const char *utf8)
 
 
 
+#ifdef OPTIMIZED_MICRO
 
 /**
  * @brief convert an utf8 string to a single ucs2
@@ -1313,6 +1314,7 @@ int utf8_to_ucs2_single(const char *utf8, unsigned short *target)
 
 
 
+#ifdef OPTIMIZED_MICRO
 /**
  * @brief Translate a UTF-8 string to UCS2 octets
  *
@@ -1341,6 +1343,8 @@ int utf8_to_ucs2(const char *utf8, char *ucs2)
     return octets;
 }
 
+
+#ifdef OPTIMIZED_MICRO
 /****************************************************************************
 This lookup table converts from ISO-8859-1 8-bit ASCII to the
 7 bit "default alphabet" as defined in ETSI GSM 03.38
@@ -1845,4 +1849,4 @@ a special meaning and must be handled separately.
             23, /* GREEK CAPITAL LETTER PSI  0x3a8              */
             21  /* GREEK CAPITAL LETTER OMEGA 0x3a9,             */
     };
-
+#endif /* OPTIMIZED_MICRO */

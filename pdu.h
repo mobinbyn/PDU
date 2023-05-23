@@ -25,9 +25,15 @@
 #include <stdint.h>
 #include <stdarg.h>
 
+
+/* If you want it to be optimized for the microcontroller, uncomment the definition below */
+//#define OPTIMIZED_MICRO
+
 /* uncomment if you need add ctrl+z and end marker to end of the packet */
 //#define CTRL_Z
-//#define PM   // uncomment to implement Arduino PROGMEM feature
+
+/* uncomment to implement Arduino PROGMEM feature */
+//#define PM
 
 
 
